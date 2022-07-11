@@ -1,0 +1,294 @@
+/*
+This file is used to contain all abstracts imports.
+Files inside this folder can contain abstract settings, helpers or functions. They have no direct output.
+*/
+/*
+This file is used to contain all base imports.
+Files inside this folder can contain global styles used in the project.
+*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: hsl(0deg, 0%, 0%);
+}
+
+/*
+This file is used to contain all components imports.
+Files inside this folder can contain global styles used in the project.
+*/
+.pageloader {
+  overflow: hidden;
+  background-color: var(--c-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.pageloader::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  bottom: 50%;
+  -webkit-animation: line 8s ease forwards;
+          animation: line 8s ease forwards;
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.pageloader::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  bottom: 50%;
+  -webkit-animation: lineHeight 2s ease forwards;
+          animation: lineHeight 2s ease forwards;
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+}
+.pageloader p {
+  color: var(--c-white);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2em;
+  gap: 2em;
+  align-items: center;
+  overflow: hidden;
+}
+.pageloader p span {
+  -webkit-animation: text 2.1s ease forwards;
+          animation: text 2.1s ease forwards;
+  -webkit-animation-delay: 0.5s;
+          animation-delay: 0.5s;
+  opacity: 0;
+}
+.pageloader p span:nth-child(1) {
+  -webkit-animation: text 2s ease forwards;
+          animation: text 2s ease forwards;
+  opacity: 0;
+}
+.pageloader img {
+  max-width: 200px;
+  position: absolute;
+  -webkit-animation: fade 3s linear infinite;
+          animation: fade 3s linear infinite;
+  -webkit-animation-delay: 0;
+          animation-delay: 0;
+}
+.pageloader img:nth-child(5) {
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+}
+.pageloader img:nth-child(3) {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+.pageloader img:nth-child(4) {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
+.pageloader .images-wrapper {
+  position: absolute;
+  top: 50%;
+  right: 20%;
+}
+
+@-webkit-keyframes fade {
+  0% {
+    opacity: 0;
+    transform: rotate(0);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0);
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    transform: rotate(0);
+  }
+  50% {
+    opacity: 1;
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes line {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes line {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes lineHeight {
+  0% {
+    height: 1px;
+    width: 100%;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    bottom: 0%;
+  }
+}
+@keyframes lineHeight {
+  0% {
+    height: 1px;
+    width: 100%;
+  }
+  100% {
+    height: 100%;
+    width: 100%;
+    bottom: 0%;
+  }
+}
+@-webkit-keyframes text {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes text {
+  0% {
+    transform: translateY(-100px);
+  }
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+:root {
+  --font-paragraph: "Nunito", sans-serif;
+  --font-heading: "Bebas Neue", sans-serif;
+  --c-black: #363636;
+  --c-white: #ffffff;
+}
+
+body {
+  box-sizing: border-box;
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  background-repeat: no-repeat;
+  font-size: 15px;
+  font-family: var(--font-paragraph);
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+}
+body p,
+body span,
+body a,
+body h1,
+body h2,
+body h3,
+body h4,
+body h5,
+body h6,
+body input,
+body li {
+  color: var(--c-black);
+}
+
+.grainbg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+nav {
+  display: flex;
+  width: 90%;
+  margin: 2em auto;
+  justify-content: space-between;
+}
+nav ul {
+  font-family: var(--font-heading);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.7em;
+}
+nav ul li a {
+  list-style: none;
+  text-decoration: none;
+  font-size: 1.5em;
+}/*# sourceMappingURL=main.css.map */

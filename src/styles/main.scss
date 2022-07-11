@@ -1,0 +1,63 @@
+@import "abstracts/__abstracts-dir";
+@import "base/__base-dir";
+@import "components/__components-dir";
+:root {
+  --font-paragraph: "Nunito", sans-serif;
+  --font-heading: "Bebas Neue", sans-serif;
+
+  --c-black: #363636;
+  --c-white: #ffffff;
+}
+
+body {
+  box-sizing: border-box;
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+  background-repeat: no-repeat;
+  font-size: 15px;
+  font-family: var(--font-paragraph);
+  max-width: 1440px;
+  min-height: 100vh;
+  margin: 0 auto;
+  position: relative;
+  p,
+  span,
+  a,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  input,
+  li {
+    color: var(--c-black);
+  }
+}
+
+.grainbg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  opacity: 0.4;
+  z-index: -1;
+}
+
+nav {
+  display: flex;
+  width: 90%;
+  margin: 2em auto;
+  justify-content: space-between;
+  ul {
+    font-family: var(--font-heading);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.7em;
+    li a {
+      list-style: none;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+  }
+}
