@@ -1,0 +1,19 @@
+@keyframes shapeCircle {
+  0% {
+    transform: rotate(-50deg);
+    scale: 1;
+  }
+  25% {
+    transform: rotate(-55deg);
+    scale: 1.1;
+    filter: invert(10%) blur(1px);
+  }
+  50% {
+    transform: rotate(-53deg);
+    scale: 1;
+  }
+  100% {
+    transform: rotate(-50deg);
+    filter: invert(0%) blur(0px);
+  }
+}

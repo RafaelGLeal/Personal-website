@@ -67,6 +67,79 @@ a {
 This file is used to contain all components imports.
 Files inside this folder can contain global styles used in the project.
 */
+.btn-primary {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.btn-primary::before {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 100%;
+  background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+  z-index: -1;
+  left: -5%;
+  transition: var(--transition);
+  opacity: 0.5;
+}
+.btn-primary:hover::before {
+  width: 100%;
+  left: 0;
+  transition: var(--transition);
+  opacity: 0.9;
+}
+.btn-primary:hover i {
+  transform: rotate(225deg);
+  transition: var(--transition);
+}
+.btn-primary i {
+  transform: rotate(180deg);
+  font-size: 2em;
+  margin-right: 0.5em;
+  color: var(--c-black);
+  transition: var(--transition);
+}
+
+@-webkit-keyframes shapeCircle {
+  0% {
+    transform: rotate(-50deg);
+    scale: 1;
+  }
+  25% {
+    transform: rotate(-55deg);
+    scale: 1.1;
+    filter: invert(10%) blur(1px);
+  }
+  50% {
+    transform: rotate(-53deg);
+    scale: 1;
+  }
+  100% {
+    transform: rotate(-50deg);
+    filter: invert(0%) blur(0px);
+  }
+}
+
+@keyframes shapeCircle {
+  0% {
+    transform: rotate(-50deg);
+    scale: 1;
+  }
+  25% {
+    transform: rotate(-55deg);
+    scale: 1.1;
+    filter: invert(10%) blur(1px);
+  }
+  50% {
+    transform: rotate(-53deg);
+    scale: 1;
+  }
+  100% {
+    transform: rotate(-50deg);
+    filter: invert(0%) blur(0px);
+  }
+}
 .pageloader {
   overflow: hidden;
   background-color: var(--c-black);
@@ -102,7 +175,7 @@ Files inside this folder can contain global styles used in the project.
           animation-delay: 8s;
 }
 .pageloader p {
-  color: var(--c-white);
+  color: var(--c-white) !important;
   display: flex;
   flex-direction: column;
   font-size: 1.2em;
@@ -238,6 +311,7 @@ Files inside this folder can contain global styles used in the project.
   --font-heading: "Bebas Neue", sans-serif;
   --c-black: #363636;
   --c-white: #ffffff;
+  --transition: 0.7s cubic-bezier(0.465, 0.183, 0.153, 0.946);
 }
 
 body {
@@ -250,18 +324,9 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   position: relative;
+  color: var(--c-black);
 }
-body p,
-body span,
-body a,
-body h1,
-body h2,
-body h3,
-body h4,
-body h5,
-body h6,
-body input,
-body li {
+body i {
   color: var(--c-black);
 }
 
@@ -274,21 +339,132 @@ body li {
   z-index: -1;
 }
 
+#root {
+  width: 100%;
+}
+
 nav {
+  position: fixed;
   display: flex;
-  width: 90%;
+  width: 100%;
   margin: 2em auto;
   justify-content: space-between;
+}
+nav .logo {
+  text-decoration: none;
+  font-size: 1.1em;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin-left: 3em;
 }
 nav ul {
   font-family: var(--font-heading);
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.7em;
+  gap: 1em;
+  position: relative;
+  margin-right: 3em;
 }
 nav ul li a {
   list-style: none;
   text-decoration: none;
   font-size: 1.5em;
+  padding: 0.2em;
+  transition: 0.2s ease;
+  position: relative;
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0.5;
+}
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  background-color: var(--c-black);
+  height: 2px;
+  width: 0%;
+  opacity: 0;
+  top: 80%;
+  right: -30%;
+  transition: 0.5s ease;
+}
+nav ul li a:hover {
+  transition: 0.5s ease;
+  opacity: 1;
+}
+nav ul li a:hover::before {
+  width: 100%;
+  opacity: 0.5;
+  transition: 0.5s ease;
+}
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  z-index: 1;
+  overflow: hidden;
+}
+.home .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+.home .container::before {
+  content: "";
+  position: absolute;
+  background-color: var(--c-black);
+  opacity: 0.3;
+  height: 2px;
+  width: 68%;
+  bottom: 0;
+  left: 0;
+}
+.home .container h1 {
+  font-family: var(--font-heading);
+  font-size: 4.746em;
+  position: relative;
+}
+.home .container img {
+  max-width: 700px;
+  position: absolute;
+  top: -300px;
+  left: 0;
+  transform: rotate(-50deg);
+  opacity: 0.1;
+  z-index: -1;
+  -webkit-animation: shapeCircle 36s linear infinite;
+          animation: shapeCircle 36s linear infinite;
+}
+.home .container img:nth-child(1) {
+  left: -200px;
+  max-width: 500px;
+  -webkit-animation: none;
+          animation: none;
+  top: -50px;
+  transform: rotate(190deg);
+}
+.home .container .btn-primary {
+  position: absolute;
+  bottom: -80%;
+  left: 58%;
+  text-decoration: none;
+}
+.home .icons-fixed {
+  position: absolute;
+  bottom: 3em;
+  left: 3em;
+}
+.home .icons-fixed i {
+  font-size: 2em;
+}
+.home .icons-fixed span {
+  visibility: hidden;
+}
+.home .icons-fixed li:hover span {
+  visibility: visible;
 }/*# sourceMappingURL=main.css.map */

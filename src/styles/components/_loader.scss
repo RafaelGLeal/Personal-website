@@ -28,7 +28,7 @@
     animation-delay: 8s;
   }
   p {
-    color: var(--c-white);
+    color: var(--c-white) !important;
     display: flex;
     flex-direction: column;
     font-size: 1.2em;

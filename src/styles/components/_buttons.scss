@@ -1,0 +1,35 @@
+.btn-primary {
+  display: flex;
+  align-items: center;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background-image: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
+    z-index: -1;
+    left: -5%;
+    transition: var(--transition);
+    opacity: 0.5;
+  }
+  &:hover {
+    &::before {
+      width: 100%;
+      left: 0;
+      transition: var(--transition);
+      opacity: 0.9;
+    }
+    i {
+      transform: rotate(225deg);
+      transition: var(--transition);
+    }
+  }
+  i {
+    transform: rotate(180deg);
+    font-size: 2em;
+    margin-right: 0.5em;
+    color: var(--c-black);
+    transition: var(--transition);
+  }
+}
