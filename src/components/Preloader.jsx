@@ -8,9 +8,9 @@ const PageLoader = () => {
     <>
       <div className="pageloader">
         <p className="loader">
-          <span>&lt; Rafael Leal</span>
+          <span>Rafael Leal</span>
 
-          <span>Developer Portfolio &#47;&gt;</span>
+          <span>Developer Portfolio </span>
         </p>
         <div className="images-wrapper">
           <img src={Shape1} alt="" />

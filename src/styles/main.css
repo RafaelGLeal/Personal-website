@@ -101,26 +101,6 @@ Files inside this folder can contain global styles used in the project.
   transition: var(--transition);
 }
 
-@-webkit-keyframes shapeCircle {
-  0% {
-    transform: rotate(-50deg);
-    scale: 1;
-  }
-  25% {
-    transform: rotate(-55deg);
-    scale: 1.1;
-    filter: invert(10%) blur(1px);
-  }
-  50% {
-    transform: rotate(-53deg);
-    scale: 1;
-  }
-  100% {
-    transform: rotate(-50deg);
-    filter: invert(0%) blur(0px);
-  }
-}
-
 @keyframes shapeCircle {
   0% {
     transform: rotate(-50deg);
@@ -157,10 +137,8 @@ Files inside this folder can contain global styles used in the project.
   height: 1px;
   background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
   bottom: 50%;
-  -webkit-animation: line 8s ease forwards;
-          animation: line 8s ease forwards;
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation: line 8s ease forwards;
+  animation-delay: 1s;
 }
 .pageloader::after {
   content: "";
@@ -169,10 +147,8 @@ Files inside this folder can contain global styles used in the project.
   height: 1px;
   background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
   bottom: 50%;
-  -webkit-animation: lineHeight 2s ease forwards;
-          animation: lineHeight 2s ease forwards;
-  -webkit-animation-delay: 8s;
-          animation-delay: 8s;
+  animation: lineHeight 2s ease forwards;
+  animation-delay: 8s;
 }
 .pageloader p {
   color: var(--c-white) !important;
@@ -184,56 +160,33 @@ Files inside this folder can contain global styles used in the project.
   overflow: hidden;
 }
 .pageloader p span {
-  -webkit-animation: text 2.1s ease forwards;
-          animation: text 2.1s ease forwards;
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
+  animation: text 2.1s ease forwards;
+  animation-delay: 0.5s;
   opacity: 0;
 }
 .pageloader p span:nth-child(1) {
-  -webkit-animation: text 2s ease forwards;
-          animation: text 2s ease forwards;
+  animation: text 2s ease forwards;
   opacity: 0;
 }
 .pageloader img {
-  max-width: 200px;
+  max-width: 150px;
   position: absolute;
-  -webkit-animation: fade 3s linear infinite;
-          animation: fade 3s linear infinite;
-  -webkit-animation-delay: 0;
-          animation-delay: 0;
+  animation: fade 3s linear infinite;
+  animation-delay: 0;
 }
 .pageloader img:nth-child(5) {
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s;
+  animation-delay: 0s;
 }
 .pageloader img:nth-child(3) {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
+  animation-delay: 1s;
 }
 .pageloader img:nth-child(4) {
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
+  animation-delay: 2s;
 }
 .pageloader .images-wrapper {
   position: absolute;
-  top: 50%;
+  top: 60%;
   right: 20%;
-}
-
-@-webkit-keyframes fade {
-  0% {
-    opacity: 0;
-    transform: rotate(0);
-  }
-  50% {
-    opacity: 1;
-    transform: rotate(30deg);
-  }
-  100% {
-    transform: rotate(0);
-    opacity: 0;
-  }
 }
 
 @keyframes fade {
@@ -250,31 +203,12 @@ Files inside this folder can contain global styles used in the project.
     opacity: 0;
   }
 }
-@-webkit-keyframes line {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
 @keyframes line {
   0% {
     width: 0;
   }
   100% {
     width: 100%;
-  }
-}
-@-webkit-keyframes lineHeight {
-  0% {
-    height: 1px;
-    width: 100%;
-  }
-  100% {
-    height: 100%;
-    width: 100%;
-    bottom: 0%;
   }
 }
 @keyframes lineHeight {
@@ -286,15 +220,6 @@ Files inside this folder can contain global styles used in the project.
     height: 100%;
     width: 100%;
     bottom: 0%;
-  }
-}
-@-webkit-keyframes text {
-  0% {
-    transform: translateY(-100px);
-  }
-  100% {
-    transform: translateY(0px);
-    opacity: 1;
   }
 }
 @keyframes text {
@@ -312,6 +237,7 @@ Files inside this folder can contain global styles used in the project.
   --c-black: #363636;
   --c-white: #ffffff;
   --transition: 0.7s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+  --gradient: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
 }
 
 body {
@@ -349,12 +275,11 @@ nav {
   width: 100%;
   margin: 2em auto;
   justify-content: space-between;
+  z-index: 100;
 }
 nav .logo {
   text-decoration: none;
   font-size: 1.1em;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
   height: fit-content;
   margin-left: 3em;
 }
@@ -406,6 +331,14 @@ nav ul li a:hover::before {
   place-items: center;
   z-index: 1;
   overflow: hidden;
+  position: relative;
+}
+.home .contactPage {
+  position: absolute;
+  bottom: 4em;
+  right: 4em;
+  font-family: var(--font-heading);
+  text-decoration: none;
 }
 .home .container {
   display: flex;
@@ -437,14 +370,12 @@ nav ul li a:hover::before {
   transform: rotate(-50deg);
   opacity: 0.1;
   z-index: -1;
-  -webkit-animation: shapeCircle 36s linear infinite;
-          animation: shapeCircle 36s linear infinite;
+  animation: shapeCircle 10s linear infinite;
 }
 .home .container img:nth-child(1) {
   left: -200px;
   max-width: 500px;
-  -webkit-animation: none;
-          animation: none;
+  animation: none;
   top: -50px;
   transform: rotate(190deg);
 }
@@ -458,13 +389,55 @@ nav ul li a:hover::before {
   position: absolute;
   bottom: 3em;
   left: 3em;
+  display: flex;
+  align-items: center;
 }
 .home .icons-fixed i {
-  font-size: 2em;
+  font-size: 1.8em;
+  z-index: 2;
 }
-.home .icons-fixed span {
+.home .icons-fixed ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 1em;
+  margin-bottom: 0.8em;
+  transition: var(--transition);
+  position: relative;
+  padding: 0.1em;
+}
+.home .icons-fixed ul li a::before {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-image: var(--gradient);
+  transition: var(--transition);
+}
+.home .icons-fixed ul li a span {
+  display: flex;
+  align-items: center;
   visibility: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition);
 }
-.home .icons-fixed li:hover span {
+.home .icons-fixed ul li a span i {
+  color: var(--c-black);
+  font-size: 1.5em;
+}
+.home .icons-fixed ul li a:hover {
+  transition: var(--transition);
+}
+.home .icons-fixed ul li a:hover::before {
+  width: 100%;
+  transition: var(--transition);
+}
+.home .icons-fixed ul li a:hover span {
   visibility: visible;
-}/*# sourceMappingURL=main.css.map */
+  opacity: 1;
+  transform: translateY(0px);
+  transition: var(--transition);
+}
+
+/*# sourceMappingURL=main.css.map */

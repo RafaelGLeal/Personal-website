@@ -5,12 +5,12 @@ import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
 import "./styles/main.css";
-import GrainBG from "./assets/grain.png";
+import pageOverlay from "./assets/grain.png";
 
 const App = () => {
   return (
     <>
-      <img src={GrainBG} alt="" className="grainbg" />
+      <img src={pageOverlay} alt="" className="grainbg" />
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />}></Route>

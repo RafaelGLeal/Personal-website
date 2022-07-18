@@ -4,18 +4,17 @@ const NavBar = () => {
   return (
     <nav>
       <Link to="/" className="logo">
-        {" "}
-        &lt;Rafael Leal
+        Rafael Leal
       </Link>
       <ul>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/about">about</Link>
         </li>
         <li>
           <Link to="/projects">projects</Link>
-        </li>
-        <li>
-          <Link to="/contact">contact</Link>
         </li>
       </ul>
     </nav>

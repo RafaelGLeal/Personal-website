@@ -7,6 +7,7 @@
   --c-black: #363636;
   --c-white: #ffffff;
   --transition: 0.7s cubic-bezier(0.465, 0.183, 0.153, 0.946);
+  --gradient: linear-gradient(to right, #ed6ea0 0%, #ec8c69 100%);
 }
 
 body {
@@ -42,6 +43,7 @@ nav {
   width: 100%;
   margin: 2em auto;
   justify-content: space-between;
+  z-index: 100;
   .logo {
     text-decoration: none;
     font-size: 1.1em;
@@ -98,6 +100,14 @@ nav {
   place-items: center;
   z-index: 1;
   overflow: hidden;
+  position: relative;
+  .contactPage {
+    position: absolute;
+    bottom: 4em;
+    right: 4em;
+    font-family: var(--font-heading);
+    text-decoration: none;
+  }
   .container {
     display: flex;
     flex-direction: column;
@@ -127,7 +137,7 @@ nav {
       transform: rotate(-50deg);
       opacity: 0.1;
       z-index: -1;
-      animation: shapeCircle 36s linear infinite;
+      animation: shapeCircle 10s linear infinite;
     }
     img:nth-child(1) {
       left: -200px;
@@ -147,15 +157,54 @@ nav {
     position: absolute;
     bottom: 3em;
     left: 3em;
+    display: flex;
+    align-items: center;
     i {
-      font-size: 2em;
+      font-size: 1.8em;
+      z-index: 2;
     }
-    span {
-      visibility: hidden;
-    }
-    li:hover {
+    ul li a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      gap: 1em;
+      margin-bottom: 0.8em;
+      transition: var(--transition);
+      position: relative;
+      padding: 0.1em;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0%;
+        height: 100%;
+        background-image: var(--gradient);
+        transition: var(--transition);
+      }
       span {
-        visibility: visible;
+        display: flex;
+        align-items: center;
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: var(--transition);
+
+        i {
+          color: var(--c-black);
+          font-size: 1.5em;
+        }
+      }
+      &:hover {
+        transition: var(--transition);
+        &::before {
+          width: 100%;
+          transition: var(--transition);
+        }
+        span {
+          visibility: visible;
+          opacity: 1;
+          transform: translateY(0px);
+          transition: var(--transition);
+        }
       }
     }
   }
